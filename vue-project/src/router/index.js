@@ -1,10 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import HomeArea from '../views/HomeArea.vue'
+import Teams from '../views/TeamView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    {
+      path: '/teams',
+      name: 'teams',
+      component: Teams
+    },
     {
       path: '/',
       name: 'home',
@@ -15,6 +21,7 @@ const router = createRouter({
       name: 'homeArea',
       component: HomeArea
     },
+   
     {
       path: '/about',
       name: 'about',
@@ -25,5 +32,6 @@ const router = createRouter({
     }
   ]
 })
+
 
 export default router

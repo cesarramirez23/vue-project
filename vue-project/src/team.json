@@ -1,0 +1,26 @@
+{
+    "name": "Smiley",
+    "spots": 7,
+    "members":[
+        {
+            "name":"James",
+            "email":"james@doe.com",
+            "status":"Active"
+        },
+        {
+            "name":"jamesS",
+            "email":"jamesS@doe.com",
+            "status":"Active"
+        },
+        {
+            "name":"sarah",
+            "email":"sarah@doe.com",
+            "status":"Active"
+        },
+        {
+            "name":"jamessd",
+            "email":"jamessd@doe.com",
+            "status":"Active"
+        }
+    ]
+}

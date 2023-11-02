@@ -14,7 +14,7 @@ defineProps({
 
 let emit = defineEmits(['update:modelValue']);
 
-function update()
+function update(e)
 {
     //this.$emit('update:modelValue', e.target.value);   
     emit('update:modelValue', e.target.value);   
