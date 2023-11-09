@@ -7,6 +7,11 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
+      path: '/3d',
+      name: '3d model',
+      component: () => import('../views/Models.vue')
+    },
+    {
       path: '/teams',
       name: 'teams',
       component: Teams
