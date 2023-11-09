@@ -1,65 +1,43 @@
 <script setup>
-import { ref } from "vue";
-  let show = ref(false);
-  let imgs = ref("https://media.geeksforgeeks.org/wp-content/uploads/20200318142245/CSS8.png");
+  import Slide from "@/components/SlideComponent.vue";
+//import {ref } from "vue";
+  /*let show = ref(false);
+  let timeStart = ref(4000);
+  let strStart = computed(()=>{
+    return "transition duration-"+ timeStart.value ;
+  });*/
+  let imgsStr = [
+    "https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU",
+    "https://fastly.picsum.photos/id/1/5000/3333.jpg?hmac=Asv2DU3rA_5D1xSe22xZK47WEAN0wjWeFOhzd13ujW4",
+    "https://fastly.picsum.photos/id/4/5000/3333.jpg?hmac=ghf06FdmgiD0-G4c9DdNM8RnBIN7BO0-ZGEw47khHP4",
+    "https://fastly.picsum.photos/id/7/4728/3168.jpg?hmac=c5B5tfYFM9blHHMhuu4UKmhnbZoJqrzNOP9xjkV4w3o"
+  ];
 
-  // called when the enter transition has finished.
-  function onAfterEnter(el) {
 
-    console.log("onAfterEnter");
-    imgs.value= "https://media.geeksforgeeks.org/wp-content/uploads/20200318142254/html9.png";
-
-  }
-
-
-  // called when the leave transition has finished and the
-  // element has been removed from the DOM.
-  function onAfterLeave(el) {
-    console.log("onAfterLeave");
-    imgs.value = "https://media.geeksforgeeks.org/wp-content/uploads/20200318142245/CSS8.png";
-  }
 
 </script>
 
 <template>
   <main>
-    
-
-    <!--
-    <div >
-      <Transition >
-          <button>But1</button>
-        <button>But2</button>
-        <button>But3</button>
-        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20200318142245/CSS8.png" />
-        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20200318142309/php7.png" />
-        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20200318142254/html9.png"  />
-      </Transition>
-    </div> 
-  -->
-
-  <button @click="show = !show">Toggle</button>
-    <div class="btn-container" style="width: 768px; height:256px ; ">
-      <img v-bind:src="imgs" class="mt-2" style="float:right; margin: 0%;"/>    
+    <Slide :imgs="imgsStr" style="width: 300px;height: 300px;"></Slide>
+  <!--<button @click="show = !show">Toggle</button>-->
+    <!--<div class="btn-container" style="width: 100%; height:100% ; position: relative; ">
+      <img v-bind:src="imgs" class="mt-2" style=" margin: 0%; display: block;"/>    
       <Transition
-      @after-enter="onAfterEnter"
-      @after-leave="onAfterLeave"
-
-      enter-from-class="scale-y-0"
-       enter-to-class="scale-y-100"
-       enter-active-class="transition duration-300"
-       leave-active-class="transition duration-200"
-       leave-from-class=" scale-y-100"
-       leave-to-class=" scale-y-0"
-
-
+        @after-enter="onAfterEnter"
+        @after-leave="onAfterLeave"
+        @before-enter="onBeforeEnter"
+        enter-from-class="opacity-0"
+        enter-to-class="opacity-100"
+        enter-active-class="transition duration-1000"
+        leave-active-class="transition duration-1000"
+        leave-from-class="opacity-100"
+        leave-to-class="opacity-0"
       >
-        <div v-if="show" style="background-color: red;width: 100%; height:100%; position:relative;"/>      
+        <div v-if="show" style="background-color: black;width: 100%; height: 100%;bottom: 0;  position: absolute;"/>      
       </Transition>
-    </div> 
+    </div> -->
 
-
-    <img v-bind:src="imgs" />   
 
   </main>
 </template> 
