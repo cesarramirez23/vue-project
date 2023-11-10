@@ -1,6 +1,6 @@
 <script setup>
     import {ref} from "vue";
-    defineProps({
+    const props = defineProps({
         imgs:  Array,
     });
 
@@ -10,9 +10,9 @@
 
       // called when the enter transition has finished.
     function onAfterEnter() {
-        console.log("onAfterEnter");
-        currentIndex +=1;
-        currentImg.value= this.imgs[currentIndex].value;
+      console.log("onAfterEnter");
+      currentIndex +=1;
+      currentImg.value = props.imgs[currentIndex];
         show.value = !show.value;    
     }
 
@@ -34,7 +34,7 @@
 <template>
     <div class="btn-container" style=" position: relative; ">
       <img v-bind:src="currentImg" class="mt-2" style=" margin: 0%; display: block;"/>    
-      <!--<Transition
+      <Transition
         @after-enter="onAfterEnter"
         @after-leave="onAfterLeave"
         @before-enter="onBeforeEnter"
@@ -47,6 +47,6 @@
       >
         <div v-if="show" style="background-color: black;width: 100%; height: 100%;bottom: 0;  position: absolute;"/>      
       </Transition>
-      -->
+      
     </div> 
 </template>
